@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskMaster</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+    <!-- Login Form -->
+    <div id="login-form" class='login'>
+      <h2>Login</h2>
+      <input type="text" id="login-username" placeholder="Username" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button id="login-btn">Login</button>
+      <p>Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signup-form" style="display: none;">
+      <h2>Sign Up</h2>
+      <input type="email" id="signup-email" placeholder="Email" required>
+      <input type="text" id="signup-username" placeholder="Username" required>
+      <input type="password" id="signup-password" placeholder="Password" required>
+      <button id="signup-btn">Sign Up</button>
+      <p>Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+    </div>
+
+    <!-- Task Manager -->
+    <div id="task-manager" style="display: none;">
+      <h2>Your Tasks</h2>
+      <button id="logout-btn">Logout</button>
+      <input type="text" id="task-title" placeholder="Task Title" required>
+      <input type="text" id="task-desc" placeholder="Task Description" required>
+      <input type="date" id="task-deadline" required>
+      <select id="task-priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button id="create-task-btn">Create Task</button>
+      <div id="tasks-container"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

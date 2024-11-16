@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url('https://img.freepik.com/free-photo/beautiful-anime-character-cartoon-scene_23-2151035176.jpg?t=st=1731763463~exp=1731767063~hmac=dc0b42dcbeb1887ff78e23c066ab7b862656bef1e07ab0ea27fbf1c3312e4c5e&w=826');
+      background-size: cover;
+      background-repeat: no-repeat; 
+      background-position: center; 
+      display: flex;
+      align-items: center;
+      place-content: center;
+      color: wheat;
+    }
+    a{
+      color: rgb(241, 245, 12);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover{
+      color: brown;
+    }
+   h2{
+    display: flex;
+    align-items: center;
+    color: tan;
+    place-content: center;
+    font-size: 40px;
+   }
+  
+  input, button, select {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+  }
+  input{
+    background-color: tan;
+    outline: none;
+  }
+  input:focus{
+    border: none;
+  }
+  
+  button {
+    background-color: brown;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 108%;
+  }
+  
+  button:hover {
+    background-color: rgb(218, 75, 9)
+  }
+  
+  #tasks-container {
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    #app {
+      padding: 10px;
+    }
+  }
+  
