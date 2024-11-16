@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoutBtn = document.getElementById('logout-btn');
   const switchToSignup = document.getElementById('switch-to-signup');
   const switchToLogin = document.getElementById('switch-to-login');
-  const messageDisplay = document.getElementById('message-display'); // Assuming you have a <p> tag with this ID for messages
+  const messageDisplay = document.getElementById('message-display');
 
   switchToSignup.addEventListener('click', () => {
     loginForm.style.display = 'none';
@@ -47,22 +47,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = document.getElementById('signup-email').value;
     const username = document.getElementById('signup-username').value;
     const password = document.getElementById('signup-password').value;
-
-    const response = await fetch('https://task-master-3mtt.vercel.app/auth/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, username, password })
-    });
-
-    const data = await response.json();
-    if (response.ok) {
-      displayMessage('Sign-up successful! Please log in.', 'success');
-      signupForm.style.display = 'none';
-      loginForm.style.display = 'block';
-    } else {
-      displayMessage(data.message, 'error');
+  
+    if (!email || !username || !password) {
+      displayMessage('All fields are required', 'error');
+      return;
+    }
+  
+    try {
+      const response = await fetch('https://task-master-3mtt.vercel.app/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, username, password })
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        displayMessage('Sign-up successful! Please log in.', 'success');
+        signupForm.style.display = 'none';
+        loginForm.style.display = 'block';
+      } else {
+        displayMessage(data.message || 'Sign-up failed. Please try again.', 'error');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      displayMessage('An error occurred. Please check your network connection.', 'error');
     }
   });
+  
 
   logoutBtn.addEventListener('click', () => {
     token = '';
@@ -103,19 +115,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tasks = await response.json();
     const tasksContainer = document.getElementById('tasks-container');
-    tasksContainer.innerHTML = ''; // Clear existing tasks
+    tasksContainer.innerHTML = '';
 
     tasks.forEach(task => {
       const taskDiv = document.createElement('div');
-      taskDiv.className = 'task-item'; // Optional: add a class for styling
+      taskDiv.className = 'task-item';
       taskDiv.textContent = `${task.title} - ${task.description} (${task.priority})`;
       tasksContainer.appendChild(taskDiv);
     });
   }
-
-  function displayMessage(message, type) {
-    messageDisplay.textContent = message;
-    messageDisplay.className = type === 'success' ? 'message-success' : 'message-error';
-  }
+  
+  const displayMessage = (message) => {
+    const messageElement = document.getElementById('message');
+    if (messageElement) {
+      messageElement.textContent = message;
+    } else {
+      console.warn("The 'message' element was not found in the DOM.");
+    }
+  };
+  
 });
 

@@ -30,12 +30,10 @@ body {
   
   input, button, select {
     display: block;
-    width: 100%;
     margin: 10px 0;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    width: 100%;
   }
   input{
     background-color: tan;
@@ -50,7 +48,7 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-    width: 108%;
+    width:  85%;
   }
   
   button:hover {
@@ -66,4 +64,16 @@ body {
       padding: 10px;
     }
   }
-  
+  .task-item{
+    background-color: brown;
+    padding: 10px;
+  }
+  #task-manager{
+      display: flex;
+      align-items: center;
+      place-content: center;
+      padding: 20px;
+  }
+  #task-manager input{
+    width: 85%;
+  }
