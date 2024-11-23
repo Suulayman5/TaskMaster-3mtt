@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
 
-    const response = await fetch('https://task-master-3mtt.vercel.app/auth/signin', {
+    const response = await fetch('https://taskmaster-3mtt.onrender.com/auth/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     try {
-      const response = await fetch('https://task-master-3mtt.vercel.app/auth/signup', {
+      const response = await fetch('https://taskmaster-3mtt.onrender.com/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, username, password })
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deadline = document.getElementById('task-deadline').value;
     const priority = document.getElementById('task-priority').value;
 
-    const response = await fetch('https://task-master-3mtt.vercel.app/tasks', {
+    const response = await fetch('https://taskmaster-3mtt.onrender.com/tasks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   async function fetchTasks() {
-    const response = await fetch('https://task-master-3mtt.vercel.app/tasks', {
+    const response = await fetch('https://taskmaster-3mtt.onrender.com/tasks', {
       headers: {
         'Authorization': `Bearer ${token}`
       }
