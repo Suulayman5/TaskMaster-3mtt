@@ -38,6 +38,8 @@ body {
   input{
     background-color: tan;
     outline: none;
+    margin: auto;
+    margin-bottom: 10px;
   }
   input:focus{
     border: none;
@@ -49,6 +51,7 @@ body {
     border: none;
     cursor: pointer;
     width:  150px;
+    margin: auto;
   }
   
   button:hover {
@@ -93,4 +96,5 @@ body {
     align-items: center;
     place-content: center;
     color: rgb(241, 245, 12);
+    margin-bottom: 40px;
   }
