@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import User from "./userModel";
+import User from "./userModel.js";
 
 const TaskSchema = new mongoose.Schema({
   title: {
