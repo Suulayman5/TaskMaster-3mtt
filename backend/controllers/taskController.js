@@ -13,10 +13,11 @@ const createTask = async (req, res) => {
       description,
       deadline,
       priority,
+      userId: req.user.id
     });
 
     await task.save();
-    res.status(201).json(task);
+    res.status(201).json({message: 'Task created'});
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
@@ -25,7 +26,7 @@ const createTask = async (req, res) => {
 
 const getTasks = async (req, res) => {
   try {
-    const tasks = await Task.find({ Task });
+    const tasks = await Task.find({userId: req.user.id});
     res.status(200).json(tasks);
   } catch (error) {
     console.error(error);
