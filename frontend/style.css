@@ -48,7 +48,7 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-    width:  85%;
+    width:  150px;
   }
   
   button:hover {
@@ -76,4 +76,21 @@ body {
   }
   #task-manager input{
     width: 85%;
+  }
+  .home{
+    /* margin: auto; */
+    display: flex;
+    align-items: center;
+    place-content: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .home h2{
+    color: brown;
+  }
+  .home p{
+    display: flex;
+    align-items: center;
+    place-content: center;
+    color: rgb(241, 245, 12);
   }

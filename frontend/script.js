@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const switchToSignup = document.getElementById('switch-to-signup');
   const switchToLogin = document.getElementById('switch-to-login');
   const messageDisplay = document.getElementById('message-display');
+  const homepage = document.getElementById('homepage');
 
   switchToSignup.addEventListener('click', () => {
     loginForm.style.display = 'none';
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   switchToLogin.addEventListener('click', () => {
     signupForm.style.display = 'none';
+    homepage.style.display = 'none'
     loginForm.style.display = 'block';
   });
 
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (response.ok) {
         displayMessage('Sign-up successful! Please log in.', 'success');
         signupForm.style.display = 'none';
-        loginForm.style.display = 'block';
+        taskManager.style.display = 'block';
       } else {
         displayMessage(data.message || 'Sign-up failed. Please try again.', 'error');
       }
@@ -126,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   const displayMessage = (message) => {
-    const messageElement = document.getElementById('message');
+    const messageElement = document.getElementById('message-display');
     if (messageElement) {
       messageElement.textContent = message;
     } else {
