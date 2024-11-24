@@ -13,8 +13,9 @@ const signUp = async (req, res) => {
 
     const userExist = await User.findOne({ email });
     if (userExist) return res.status(400).json({ message: "User already exists" });
-
-    const user = new User({ username, email, password });
+    
+    const hashpassword = await bcryptjs.hash(password, 10)
+    const user = new User({ username, email, password: hashpassword });
     await user.save();
 
     res.status(201).json({message: "account created successfully"});
