@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import User from "./userModel.js";
 
 const TaskSchema = new mongoose.Schema({
   title: {
@@ -18,11 +17,6 @@ const TaskSchema = new mongoose.Schema({
     type: String,
     enum: ["low", "medium", "high"],
     required: true,
-  },
-  userId:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: User,
-    required: true
   }
 });
 
